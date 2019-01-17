@@ -10,7 +10,7 @@
 
 ### Shane
 
-* Establish tools for editor (CodeMirror)[https://codemirror.net]
+* Establish tools for editor [CodeMirror](https://codemirror.net)
 * Read up on Canvas APIs
 * Implement iframe-side user input parsing and message creation
 

@@ -1,5 +1,9 @@
 # turtlejs
 
+## Development
+
+`python -m SimpleHTTPServer`
+
 ## MVP
 
 * Pen up/down

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/codemirror-5.42.2/lib/codemirror.css" />
+  </head>
+  <body>
+    <div id="editor"></div>
+    <script src="lib/codemirror-5.42.2/lib/codemirror.js"></script>
+    <script src="lib/codemirror-5.42.2/mode/javascript/javascript.js"></script>
+    <script>
+      const codeMirror = CodeMirror(document.getElementById("editor"), {
+        value: "const x = 'Hello, World!'",
+        mode: "javascript",
+        lineNumbers: true,
+        autofocus: true
+      });
+    </script>
+  </body>
+</html>

@@ -2,9 +2,17 @@
 <html>
   <head>
     <link rel="stylesheet" href="lib/codemirror-5.42.2/lib/codemirror.css" />
+    <style>
+      #sandbox {
+        display: none;
+      }
+    </style>
   </head>
   <body>
+    <iframe id="sandbox" sandbox="allow-scripts" src="frame.html"></iframe>
     <div id="editor"></div>
+    <button type="button" onclick="onRunClick()">Run</button>
+    <div id="output"></div>
     <script src="lib/codemirror-5.42.2/lib/codemirror.js"></script>
     <script src="lib/codemirror-5.42.2/mode/javascript/javascript.js"></script>
     <script>
@@ -13,6 +21,20 @@
         mode: "javascript",
         lineNumbers: true,
         autofocus: true
+      });
+
+      function onRunClick() {
+        const code = codeMirror.getValue();
+        const frame = document.getElementById("sandbox");
+        frame.contentWindow.postMessage(code, "*");
+      }
+
+      window.addEventListener("message", event => {
+        const frame = document.getElementById("sandbox");
+        const output = document.getElementById("output");
+        if (event.origin === "null" && event.source === frame.contentWindow) {
+          output.innerText = event.data;
+        }
       });
     </script>
   </body>
